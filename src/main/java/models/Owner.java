@@ -1,7 +1,10 @@
 package models;
 
+import javax.persistence.*;
 import java.util.List;
 
+@Entity
+@Table(name = "owner")
 public class Owner {
     private int id;
     private String name;
@@ -17,6 +20,9 @@ public class Owner {
         Folders = folders;
     }
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     public int getId() {
         return id;
     }
@@ -25,6 +31,7 @@ public class Owner {
         this.id = id;
     }
 
+    @Column(name = "name")
     public String getName() {
         return name;
     }
@@ -33,6 +40,7 @@ public class Owner {
         this.name = name;
     }
 
+    @Column(name = "username")
     public String getUsername() {
         return username;
     }
@@ -41,6 +49,7 @@ public class Owner {
         this.username = username;
     }
 
+    @OneToMany(mappedBy = "owner", fetch = FetchType.LAZY)
     public List<Folder> getFolders() {
         return Folders;
     }

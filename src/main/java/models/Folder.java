@@ -1,7 +1,11 @@
 package models;
 
+import javax.persistence.*;
 import java.util.List;
 
+
+@Entity
+@Table(name = "folder")
 public class Folder {
 
     private int id;
@@ -18,6 +22,10 @@ public class Folder {
         this.owner = owner;
     }
 
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     public int getId() {
         return id;
     }
@@ -26,6 +34,7 @@ public class Folder {
         this.id = id;
     }
 
+    @Column(name = "title")
     public String getTitle() {
         return title;
     }
@@ -34,6 +43,7 @@ public class Folder {
         this.title = title;
     }
 
+    @OneToMany (mappedBy = "file_id", fetch = FetchType.LAZY)
     public List<File> getFiles() {
         return files;
     }
@@ -42,6 +52,8 @@ public class Folder {
         this.files = files;
     }
 
+    @ManyToOne
+    @JoinColumn (name = "owner_id", nullable = false)
     public Owner getOwner() {
         return owner;
     }
