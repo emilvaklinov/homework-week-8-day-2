@@ -14,7 +14,7 @@ public class File {
 
     public File(){}
 
-    public File(int id, String name, String extension, double size, Folder folder) {
+    public File(String name, String extension, double size, Folder folder) {
         this.id = id;
         this.name = name;
         this.extension = extension;

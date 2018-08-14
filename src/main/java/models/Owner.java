@@ -13,11 +13,11 @@ public class Owner {
 
     public Owner(){}
 
-    public Owner(int id, String name, String username, List<Folder> folders) {
+    public Owner(String name) {
         this.id = id;
         this.name = name;
         this.username = username;
-        Folders = folders;
+        List<Folder> folders;
     }
 
     @Id

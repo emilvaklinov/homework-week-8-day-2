@@ -9,15 +9,16 @@ import java.util.List;
 
 public class Runner {
 
-    public static void main(String[] args){
-        Owner owner = new Owner("EmilVaklinov");
+    public static void main(String[] args) {
+        Owner owner = new Owner("Emil Vaklinov");
         DBHelper.save(owner);
 
-        Folder folder1 = new Folder("File Folder", owner);
+        Folder folder1 = new Folder("File folder", owner);
         DBHelper.save(folder1);
 
         File file1 = new File("Exel", ".exl", 10, folder1);
         DBHelper.save(file1);
+
         File file2 = new File("Picture", ".jpg", 30, folder1);
         DBHelper.save(file2);
 

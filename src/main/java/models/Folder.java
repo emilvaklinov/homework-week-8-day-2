@@ -15,7 +15,7 @@ public class Folder {
 
     public Folder(){ }
 
-    public Folder(int id, String title, List<File> files, Owner owner) {
+    public Folder(String title, Owner owner) {
         this.id = id;
         this.title = title;
         this.files = files;
